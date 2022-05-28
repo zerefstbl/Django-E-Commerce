@@ -1,0 +1,126 @@
+{% load static %}
+{% load eofilters %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'parciais/_head.html' %}
+</head>
+
+<body style="background: #252525;">
+
+    {% include 'parciais/_nav.html' %}
+    {% if carrinho %}
+    <div class="cart-table-area section-padding-100">
+        <div class="container-fluid">
+            {% include 'parciais/_messages.html' %}
+            <div class="row">
+                <div class="col-12 col-lg-8">
+
+
+                    <div class="cart-table clearfix">
+                        <table class="table table-responsive" id="tabelinha">
+                            <div class="cart-title mt-50">
+                                <h2 style="color: #fbb710">Carrinho</h2>
+                            </div>
+                            <thead>
+                                <tr style="background: #252525;">
+                                    <th></th>
+                                    <th style="color: white;">Nome</th>
+                                    <th style="color: white;">Quantidade</th>
+                                    <th style="color: white;">Preço T.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for linha in carrinho.values %}
+                                <tr>
+                                    <td class="cart_product_img">
+                                        <a href="#"><img src="{% get_media_prefix %}{{ linha.imagem }}"
+                                                alt="Product"></a>
+                                    </td>
+                                    <td class="cart_product_desc">
+                                        <h5 style="font-size: 13px; color:white;">
+                                            {{ linha.produto_nome }} {{ linha.variacao_nome }}
+                                        </h5>
+                                    </td>
+                                    <td class="price">
+                                        <span style="color: white;">
+                                            {{ linha.quantidade }}x
+                                            {% if linha.preco_unitario_promocional %}
+                                            {{ linha.preco_unitario_promocional | formata_preco }}
+                                            {% else %}
+                                            {{ linha.preco_unitario | formata_preco }}
+                                            {% endif %}
+                                        </span>
+                                    </td>
+                                    {% if linha.preco_quantitativo_promocional %}
+                                    <td class="price" style="font-size: 15; color:white">
+                                        <span>{{ linha.preco_quantitativo_promocional | formata_preco }}</span>
+                                        <a class="ml-3"
+                                            href="{% url 'produto:removerdocarrinho' %}?vid={{ linha.variacao_id }}">
+                                            <i class="fas fa-times-circle text-danger" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                    {% else %}
+                                    <td class="price" style="font-size: 15; font-weight: 100; color: white;">
+                                        <span>{{ linha.preco_quantitativo | formata_preco }}</span>
+                                        <a class="ml-3"
+                                            href="{% url 'produto:removerdocarrinho' %}?vid={{ linha.variacao_id }}">
+                                            <i class="fas fa-times-circle text-danger" aria-hidden="true"></i>
+                                        </a>
+                                    </td>1
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div id="bordinha" class="cart-summary" style="background: #252525;">
+                        <h5 style="color: #fbb710; font-size:25px">Total Carrinho</h5>
+                        <ul class="summary-table">
+                            <li><span style="color: white;">Qtd Itens:</span> <span style="color: white;">
+                                    {{ carrinho | qtd_cart }}x</span>
+                            </li>
+                            <li><span style="color: white;">total:</span> <span style="color: white;">
+                                    {{ carrinho | totals_cart | formata_preco }}</span>
+                            </li>
+                        </ul>
+                        <style>
+                            #bordinha {
+                                border-width: 8px;
+                                border-style: outset;
+                                border-color: #fbb710;
+                            }
+                        </style>
+                        <div class="cart-btn mt-100">
+                            <a href="cart.html" class="btn amado-btn w-100">Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% else %}
+    <div class="cart-title mt-50">
+        <h2 style="color: #fbb710">Carrinho Vazio</h2>
+    </div>
+    {% endif %}
+
+    {% include 'parciais/_footer.html' %}
+    <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Plugins js -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+
+</body>
+
+</html>

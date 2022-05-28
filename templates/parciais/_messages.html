@@ -1,0 +1,15 @@
+{% if messages %}
+<br>
+{% for message in messages %}
+<div class="container">
+    <div id="laranja" class="alert {{ message.tags }}" role="alert">
+        {{ message }}
+    </div>
+</div>
+<style>
+    #laranja {
+        margin-top: 0;
+    }
+</style>
+{% endfor %}
+{% endif %}

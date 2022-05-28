@@ -1,0 +1,71 @@
+{% load static %}
+{% load eofilters %}
+<div class="search-wrapper section-padding-100">
+    <div class="search-close">
+        <i class="fa fa-close" aria-hidden="true"></i>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="search-content">
+                    <form action="#" method="get">
+                        <input type="search" name="search" id="search" placeholder="Type your keyword...">
+                        <button type="submit"><img src="{% static 'img/core-img/search.png' %}" alt=""></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-content-wrapper d-flex clearfix">
+
+    <div class="mobile-nav">
+        <div class="amado-navbar-brand">
+            <a href=""><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+        </div>
+        <div class="amado-navbar-toggler">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <header class="header-area clearfix" style="background: #252525;">
+        <div class="nav-close">
+            <i class="fa fa-close" aria-hidden="true"></i>
+        </div>
+        <div class="logo">
+            <a href="/"><img src="{% static 'img/core-img/nova-logo.jpg' %}" alt=""></a>
+        </div>
+        <nav class="amado-nav">
+            <ul>
+                <li class="active"><a href="{% static 'index.html' %}" style="color:white;">Home</a></li>
+                <li><a href="{% static 'shop.html' %}" style="color:white;">Categorias</a></li>
+                <li><a href="{% static 'product-details.html' %}" style="color:white;">Produtos</a></li>
+                <li><a href="{% url 'produto:carrinho' %}" style="color:white;">Carrinho</a></li>
+            </ul>
+        </nav>
+        <div class="amado-btn-group mt-30 mb-100">
+            <a href="#" class="btn amado-btn mb-15">Descontos</a>
+            <a href="#" class="btn amado-btn active">Novidades</a>
+        </div>
+        <div class="cart-fav-search mb-100">
+            <a href="cart.html" class="cart-nav" style="color:white;"><img src="{% static 'img/core-img/cart.png' %}"
+                    alt=""> Carrinho</span></a>
+            <a href="#" class="fav-nav" style="color:white;"><img src="{% static 'img/core-img/favorites.png' %}"
+                    alt="">Favoritos</a>
+            <a href="#" class="search-nav" style="color:white;"><img src="{% static 'img/core-img/search.png' %}"
+                    alt="">Procurar</a>
+        </div>
+        <div class="social-info d-flex justify-content-between">
+            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        </div>
+    </header>
+    <!-- Header Area End -->
+    <script src="{% static 'assets/bootstrap/js/jquery-3.2.1.slim.min.js'%}"></script>
+    <script src="{% static 'assets/bootstrap/js/popper.min.js'%}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+    <script defer src="{% static 'assets/font-awesome/js/all.js'%}"></script>
+    <script src="{% static 'assets/custom/js/scripts.js'%}"></script>

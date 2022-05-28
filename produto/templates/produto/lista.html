@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load eofilters %}
+
+{% load static %}
+
+{% block conteudo %}
+
+
+{% for produto in produtos %}
+<div class="single-products-catagory clearfix" style="max-width:100%;">
+    <a href="{{ produto.slug }}">
+        {% if produto.imagem %}
+        <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" class="imagenizada">
+        {% endif %}
+        <div class="hover-content">
+            <div class="line"></div>
+            {% if produto.preco_marketing_promocional %}
+            <p style="font-size: 19px;">{{ produto.preco_marketing_promocional | formata_preco }}</p>
+            <p style="text-decoration: line-through; font-size: 13px;">{{ produto.preco_marketing | formata_preco }}</p>
+            {% else %}
+            <p style="font-size: 19px;">{{ produto.preco_marketing | formata_preco }}</p>
+            {% endif %}
+            <h4 style="color: white;">{{ produto.nome }}</h4>
+        </div>
+    </a>
+</div>
+{% endfor %}
+{% endblock %}
+{% block pagination %}
+<div class="row">
+    <div class="col" style="margin-left: 50%;">
+        {% include 'parciais/_pagination.html' %}
+    </div>
+</div>
+{% endblock %}

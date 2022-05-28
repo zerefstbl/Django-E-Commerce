@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    {% include 'parciais/_head.html' %}
+</head>
+<body style="background: #252525;">
+    {% include 'parciais/_messages.html' %}
+    
+    <section><!-- Search Wrapper Area Start -->
+        {% include 'parciais/_nav.html' %}
+        <!-- Inicio dos Produtos. -->
+        <div class="products-catagories-area clearfix">
+            <div class="amado-pro-catagory clearfix">
+
+                {% block conteudo %}{% endblock %}
+            </div>
+        </div>
+
+</section>
+{% block pagination %}
+{% endblock %}
+{% include 'parciais/_test.html' %}
+{% include 'parciais/_footer.html' %}
+<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Plugins js -->
+<script src="js/plugins.js"></script>
+<!-- Active js -->
+<script src="js/active.js"></script>
+
+</body>
+
+</html>

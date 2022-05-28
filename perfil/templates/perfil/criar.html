@@ -1,0 +1,180 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% include 'parciais/_head.html' %}
+
+<body style="background: #252525;">
+    {% include 'parciais/_nav.html' %}
+
+    <div class="cart-table-area section-padding-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="checkout_details_area mt-50 clearfix">
+
+                        <div class="row">
+                            <div class="col-lg">
+                                <h1 style="color: white;"">Cadastro</h1>
+                                <form method=" POST" action="" style="color: white;">
+                                    {% csrf_token %}
+                                    {{ userform | crispy }}
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit" name="cadastrar" value="5" id="dudulindo"
+                                                class="btn amado-btn">Cadastrar</button>
+                                        </div>
+                                        <style>
+                                            #dudulindo {
+                                                background: #fbb710;
+                                                margin-top: 0px;
+                                                width: 827px;
+                                                height: 80px;
+                                                font: bolder;
+                                                transition: all 0.5s;
+
+                                            }
+
+                                            .amado-btn {
+                                                display: inline-block;
+                                                min-width: 160px;
+                                                height: 55px;
+                                                color: #ffffff;
+                                                border: none;
+                                                border-radius: 0;
+                                                padding: 0 7px;
+                                                font-size: 18px;
+                                                line-height: 56px;
+                                                background-color: #fbb710;
+                                                font-weight: 400;
+                                            }
+
+                                            #dudulindo:hover {
+                                                background: black;
+                                            }
+
+                                            .amado-btn.active,
+                                            .amado-btn:hover,
+                                            .amado-btn:focus {
+                                                font-size: 18px;
+                                                color: #ffffff;
+                                                background-color: #131212;
+                                            }
+
+                                            @media (max-width: 792px) {
+                                                #dudulindo:hover {
+                                                    background: black;
+                                                }
+
+                                                #dudulindo {
+                                                    background: #fbb710;
+                                                    margin-top: 0px;
+                                                    width: 490px;
+                                                    height: 80px;
+                                                    font: bolder;
+                                                    transition: all 0.5s;
+                                                }
+
+
+                                            }
+
+                                            @media (max-width: 992px) {
+                                                #dudulindo:hover {
+                                                    background: black;
+                                                }
+
+                                                #dudulindo {
+                                                    background: #fbb710;
+                                                    margin-top: 0px;
+                                                    width: 590px;
+                                                    height: 80px;
+                                                    font: bolder;
+                                                    transition: all 0.5s;
+                                                }
+
+
+                                            }
+
+                                            @media (min-width: 993px) {
+                                                #dudulindo:hover {
+                                                    background: black;
+                                                }
+
+                                                #dudulindo {
+                                                    background: #fbb710;
+                                                    margin-top: 0px;
+                                                    max-width: 534;
+                                                    width: 534px;
+                                                    height: 80px;
+                                                    font: bolder;
+                                                    transition: all 0.5s;
+                                                }
+
+
+                                            }
+
+                                            @media (min-width: 1100px) {
+                                                #dudulindo:hover {
+                                                    background: black;
+                                                }
+
+                                                #dudulindo {
+                                                    background: #fbb710;
+                                                    margin-top: 0px;
+                                                    max-width: 690px;
+                                                    width: 100%;
+                                                    height: 80px;
+                                                    font: bolder;
+                                                    transition: all 0.5s;
+                                                }
+
+
+                                            }
+
+                                            @media (max-width: 1200px) {
+                                                #dudulindo:hover {
+                                                    background: black;
+                                                }
+
+                                                #dudulindo {
+                                                    background: #fbb710;
+                                                    margin-top: 0px;
+                                                    max-width: 630px;
+                                                    width: 100%;
+                                                    height: 80px;
+                                                    font: bolder;
+                                                    transition: all 0.5s;
+                                                }
+
+
+                                            }
+
+                                            @media (min-width: 1200px) {
+                                                #dudulindo:hover {
+                                                    background: black;
+                                                }
+
+                                                #dudulindo {
+                                                    background: #fbb710;
+                                                    margin-top: 0px;
+                                                    max-width: 3260px;
+                                                    height: 80px;
+                                                    font: bolder;
+                                                    transition: all 0.5s;
+                                                }
+
+
+                                            }
+                                        </style>
+                                    </div>
+                                    </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    {% include 'parciais/_footer.html' %}
+</body>
